@@ -17,6 +17,13 @@ export const PageBooks = () => {
 		<div className="page_books">
 			<h2>Books</h2>
 			<p>I am reading the following {techBooks.length} tech books:</p>
+			<div className="techBooks">
+				{techBooks.map((techBook, index) => {
+					return (
+						<div key={index} className="techBook">{techBook.title}</div>
+					)
+				})}
+			</div>
 		</div>
 	)
 }
