@@ -25,15 +25,11 @@ export const PageBooks = () => {
 		})();
 	}, []);
 
-	const handleDeleteTechBook = (techBook) => {
-		dispatchTechBooks({ type: 'delete', payload: techBook });
-	}
-
 	return (
 		<div className="page_books">
 			<h2>Books</h2>
 			<p>I am reading the following {techBooks.length} tech books:</p>
-			<TechBooks techBooks={techBooks} handleDeleteTechBook={handleDeleteTechBook} />
+			<TechBooks techBooks={techBooks} dispatchTechBooks={dispatchTechBooks}/>
 		</div>
 	);
 };
