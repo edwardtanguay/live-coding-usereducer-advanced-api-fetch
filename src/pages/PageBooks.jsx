@@ -10,6 +10,10 @@ const techBooksReducer = (techBooks, action) => {
 		case 'delete':
 			const _techBooks = techBooks.filter(m => m.id !== action.payload.id);
 			return [..._techBooks];
+		case 'markAsFinished':
+			action.payload.title = action.payload.title + ' - FINISHED';
+			return [...techBooks];
+
 	}
 }
 
@@ -20,7 +24,6 @@ export const PageBooks = () => {
 		(async () => {
 			const response = await fetch(techBooksUrl);
 			const _techBooks = await response.json();
-			// setTechBooks(_techBooks);
 			dispatchTechBooks({ type: 'load', payload: _techBooks });
 		})();
 	}, []);

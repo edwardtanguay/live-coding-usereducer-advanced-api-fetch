@@ -22,6 +22,16 @@ export const TechBook = ({
 					>
 						Delete
 					</button>
+					<button
+						onClick={() =>
+							dispatchTechBooks({
+								type: 'markAsFinished',
+								payload: techBook,
+							})
+						}
+					>
+						Mark as Finished
+					</button>
 				</div>
 			</div>
 		</div>
