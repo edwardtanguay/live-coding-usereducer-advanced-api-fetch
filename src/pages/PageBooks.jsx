@@ -1,16 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useReducer } from 'react';
 import { TechBooks } from '../components/TechBooks';
 
 const techBooksUrl = 'https://edwardtanguay.netlify.app/share/techBooks.json';
 
+const techBooksReducer = (techBooks, action) => {
+	switch (action.type) {
+		case 'load':
+			return [...action.payload];
+	}
+}
+
 export const PageBooks = () => {
-	const [techBooks, setTechBooks] = useState([]);
+	const [techBooks, dispatchTechBooks] = useReducer(techBooksReducer,[]);
 
 	useEffect(() => {
 		(async () => {
 			const response = await fetch(techBooksUrl);
 			const _techBooks = await response.json();
-			setTechBooks(_techBooks);
+			// setTechBooks(_techBooks);
+			dispatchTechBooks({ type: 'load', payload: _techBooks });
 		})();
 	}, []);
 
