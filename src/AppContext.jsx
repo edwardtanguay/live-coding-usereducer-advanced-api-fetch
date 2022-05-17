@@ -43,7 +43,7 @@ export const AppProvider = ({ children }) => {
 		(async () => {
 			const response = await fetch(techBooksUrl);
 			const _techBooks = await response.json();
-			dispatchTechBooks({ type: 'load', payload: _techBooks });
+			dispatchTechBooks({ type: TECHBOOKS_ACTION.LOAD, payload: _techBooks });
 		})();
 	}, []);
 
