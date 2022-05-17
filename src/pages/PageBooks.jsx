@@ -3,22 +3,30 @@ import { TechBooks } from '../components/TechBooks';
 
 const techBooksUrl = 'https://edwardtanguay.netlify.app/share/techBooks.json';
 
+export const TECHBOOKS_ACTION = {
+	LOAD: 'load',
+	DELETE: 'delete',
+	MARK_AS_FINISHED: 'markAsFinished',
+	DECREASE_RANK: 'decreaseRank',
+	INCREASE_RANK: 'increaseRank',
+};
+
 const techBooksReducer = (techBooks, action) => {
 	switch (action.type) {
-		case 'load':
+		case TECHBOOKS_ACTION.LOAD:
 			return [...action.payload];
-		case 'delete':
+		case TECHBOOKS_ACTION.DELETE: 
 			const _techBooks = techBooks.filter(
 				(m) => m.id !== action.payload.id
 			);
 			return [..._techBooks];
-		case 'markAsFinished':
+		case TECHBOOKS_ACTION.MARK_AS_FINISHED:
 			action.payload.title = action.payload.title + ' - FINISHED';
 			return [...techBooks];
-		case 'decreaseRank':
+		case TECHBOOKS_ACTION.DECREASE_RANK:
 			action.payload.rank = (action.payload.rank - 0.1).toFixed(1);
 			return [...techBooks];
-		case 'increaseRank':
+		case TECHBOOKS_ACTION.INCREASE_RANK:
 			action.payload.rank = (Number(action.payload.rank) + 0.1).toFixed(
 				1
 			);

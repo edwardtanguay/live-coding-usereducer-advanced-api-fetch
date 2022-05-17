@@ -1,3 +1,5 @@
+import { TECHBOOKS_ACTION } from '../pages/PageBooks';
+
 export const TechBook = ({
 	techBook,
 	dispatchTechBooks = { dispatchTechBooks },
@@ -16,7 +18,7 @@ export const TechBook = ({
 					<button
 						onClick={() =>
 							dispatchTechBooks({
-								type: 'delete',
+								type: TECHBOOKS_ACTION.DELETE,
 								payload: techBook,
 							})
 						}
@@ -26,7 +28,7 @@ export const TechBook = ({
 					<button
 						onClick={() =>
 							dispatchTechBooks({
-								type: 'markAsFinished',
+								type: TECHBOOKS_ACTION.MARK_AS_FINISHED,
 								payload: techBook,
 							})
 						}
@@ -36,7 +38,7 @@ export const TechBook = ({
 					<button
 						onClick={() =>
 							dispatchTechBooks({
-								type: 'decreaseRank',
+								type: TECHBOOKS_ACTION.DECREASE_RANK,
 								payload: techBook,
 							})
 						}
@@ -46,7 +48,7 @@ export const TechBook = ({
 					<button
 						onClick={() =>
 							dispatchTechBooks({
-								type: 'increaseRank',
+								type: TECHBOOKS_ACTION.INCREASE_RANK,
 								payload: techBook,
 							})
 						}
