@@ -1,4 +1,10 @@
 export const TechBook = ({techBook}) => {
+
+	const handleDeleteTechBook = (techBook) => {
+		const _techBooks = techBooks.filter(m => m.id !== techBook.id);
+		setTechBooks(_techBooks);
+	}
+
 	return (
 		<div className="techBook">
 			<img
@@ -8,6 +14,9 @@ export const TechBook = ({techBook}) => {
 			<div className="info">
 				<div className="title">{techBook.title}</div>
 				<div className="description">{techBook.description}</div>
+				<div className="buttonArea">
+					<button onClick={() => handleDeleteTechBook(techBook)}>Delete</button>
+				</div>
 			</div>
 		</div>
 	);
