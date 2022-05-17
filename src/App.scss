@@ -12,4 +12,30 @@ body {
 	a.active {
 		color: yellow;
 	}
+
+	.techBooks {
+		.techBook {
+			display: flex;
+
+			background-color: #444;
+			padding: 20px;
+			border-radius: 5px;
+			margin-bottom: 10px;
+
+			img {
+				height: 210px;
+			}
+
+			.info {
+				margin-left: 10px;
+				.title {
+					color: rgb(244, 244, 121);
+				}
+				.description {
+					font-size: 1.2rem;
+					font-style: italic;
+				}
+			}
+		}
+	}
 }

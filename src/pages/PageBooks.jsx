@@ -26,7 +26,7 @@ export const PageBooks = () => {
 								alt="book cover"
 							/>
 							<div className="info">
-								<div key={index} className="techBook">
+								<div className="title">
 									{techBook.title}
 								</div>
 								<div className="description">
