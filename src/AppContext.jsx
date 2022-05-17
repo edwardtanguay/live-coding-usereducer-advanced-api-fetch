@@ -23,7 +23,8 @@ const techBooksReducer = (techBooks, action) => {
 			);
 			return [..._techBooks];
 		case TECHBOOKS_ACTION.MARK_AS_FINISHED:
-			action.payload.title = action.payload.title + ' - FINISHED';
+			const suffix = ' - FINISHED';
+			action.payload.title = action.payload.title.endsWith(suffix) ? action.payload.title : action.payload.title + suffix;
 			return [...techBooks];
 		case TECHBOOKS_ACTION.DECREASE_RANK:
 			action.payload.rank = (action.payload.rank - 0.1).toFixed(1);
