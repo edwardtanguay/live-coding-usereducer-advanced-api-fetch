@@ -7,6 +7,9 @@ const techBooksReducer = (techBooks, action) => {
 	switch (action.type) {
 		case 'load':
 			return [...action.payload];
+		case 'delete':
+			const _techBooks = techBooks.filter(m => m.id !== action.payload.id);
+			return [..._techBooks];
 	}
 }
 
@@ -23,8 +26,7 @@ export const PageBooks = () => {
 	}, []);
 
 	const handleDeleteTechBook = (techBook) => {
-		const _techBooks = techBooks.filter(m => m.id !== techBook.id);
-		setTechBooks(_techBooks);
+		dispatchTechBooks({ type: 'delete', payload: techBook });
 	}
 
 	return (
