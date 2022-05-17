@@ -11,6 +11,7 @@ export const TechBook = ({
 			<div className="info">
 				<div className="title">{techBook.title}</div>
 				<div className="description">{techBook.description}</div>
+				<div className="rank">Rank = {techBook.rank}</div>
 				<div className="buttonArea">
 					<button
 						onClick={() =>
@@ -31,6 +32,26 @@ export const TechBook = ({
 						}
 					>
 						Mark as Finished
+					</button>
+					<button
+						onClick={() =>
+							dispatchTechBooks({
+								type: 'decreaseRank',
+								payload: techBook,
+							})
+						}
+					>
+						-
+					</button>
+					<button
+						onClick={() =>
+							dispatchTechBooks({
+								type: 'increaseRank',
+								payload: techBook,
+							})
+						}
+					>
+						+
 					</button>
 				</div>
 			</div>
