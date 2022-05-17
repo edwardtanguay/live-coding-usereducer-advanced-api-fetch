@@ -1,5 +1,6 @@
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer, useContext } from 'react';
 import { TechBooks } from '../components/TechBooks';
+import { AppContext } from '../AppContext';
 
 const techBooksUrl = 'https://edwardtanguay.netlify.app/share/techBooks.json';
 
@@ -35,6 +36,7 @@ const techBooksReducer = (techBooks, action) => {
 };
 
 export const PageBooks = () => {
+	const { testMessage } = useContext(AppContext);
 	const [techBooks, dispatchTechBooks] = useReducer(techBooksReducer, []);
 
 	useEffect(() => {
