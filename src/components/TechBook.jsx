@@ -1,9 +1,4 @@
-export const TechBook = ({techBook}) => {
-
-	const handleDeleteTechBook = (techBook) => {
-		const _techBooks = techBooks.filter(m => m.id !== techBook.id);
-		setTechBooks(_techBooks);
-	}
+export const TechBook = ({techBook, handleDeleteTechBook={handleDeleteTechBook}}) => {
 
 	return (
 		<div className="techBook">
