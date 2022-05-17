@@ -1,10 +1,14 @@
+import { useContext } from 'react';
+import { AppContext } from '../AppContext';
 import { TechBook } from './TechBook';
 
-export const TechBooks = ({ techBooks, dispatchTechBooks={dispatchTechBooks} }) => {
+export const TechBooks = () => {
+	const { techBooks } = useContext(AppContext);
+
 	return (
 		<div className="techBooks">
 			{techBooks.map((techBook, index) => {
-				return <TechBook techBook={techBook} dispatchTechBooks={dispatchTechBooks} />;
+				return <TechBook techBook={techBook} />;
 			})}
 		</div>
 	);

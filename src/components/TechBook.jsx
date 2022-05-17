@@ -1,9 +1,10 @@
-import { TECHBOOKS_ACTION } from '../pages/PageBooks';
+import { useContext } from 'react';
+import { AppContext } from '../AppContext';
+import { TECHBOOKS_ACTION } from '../AppContext';
 
-export const TechBook = ({
-	techBook,
-	dispatchTechBooks = { dispatchTechBooks },
-}) => {
+export const TechBook = ({techBook}) => {
+	const { dispatchTechBooks } = useContext(AppContext);
+
 	return (
 		<div className="techBook">
 			<img
